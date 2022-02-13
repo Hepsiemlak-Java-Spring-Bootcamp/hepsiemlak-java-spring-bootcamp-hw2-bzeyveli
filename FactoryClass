@@ -1,0 +1,61 @@
+package com.company.hepsiemlak.factory;
+
+import com.company.hepsiemlak.business.abstracts.ManagerHelper;
+import com.company.hepsiemlak.business.concrete.*;
+import com.company.hepsiemlak.model.entities.*;
+
+public class EntityFactory {
+
+public ManagerHelper factory(String entityClass) {
+              
+              if (entityClass == null) {
+                   return null;
+               }
+               if (entityClass.equalsIgnoreCase("Address")) {
+                   return new AddressManager();
+               }
+               if (entityClass.equalsIgnoreCase("Advert")) {
+                   return new AdvertManager();
+               }
+               if (entityClass.equalsIgnoreCase("AuthUser")) {
+                   return new AuthUserManager();
+               }
+               if (entityClass.equalsIgnoreCase("Favorite")) {
+                   return new FavoriteManager();
+               }
+               if (entityClass.equalsIgnoreCase("Message")) {
+                   return new MessageManager();
+               }
+           return null;
+           }
+
+    /*
+    public ManagerHelper factory(EntitiyClass entitiyClass) {
+
+        switch (entitiyClass) {
+            case ADVERT -> {
+                return (ManagerHelper) new AdvertManager();
+            }
+            case ADDRESS -> {
+                return (ManagerHelper) new AddressManager();
+            }
+            case MESSAGE -> {
+                return (ManagerHelper) new Message();
+            }
+            case FAVORITE -> {
+                return (ManagerHelper) new FavoriteManager();
+            }
+            case AUTHUSER -> {
+                return (ManagerHelper) new AuthUserManager();
+            }
+            default -> throw new UnsupportedOperationException();
+        }
+    }
+
+    public enum EntitiyClass {
+         ADVERT,ADDRESS, MESSAGE,FAVORITE, AUTHROLE, AUTHUSER, AUTHUSERROLE
+    }
+
+ */
+
+}
