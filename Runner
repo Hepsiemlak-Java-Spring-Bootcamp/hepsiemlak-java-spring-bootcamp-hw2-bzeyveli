@@ -1,0 +1,51 @@
+package com.company.hepsiemlak;
+
+
+import com.company.hepsiemlak.business.concrete.AdvertManager;
+import com.company.hepsiemlak.business.concrete.MessageManager;
+import com.company.hepsiemlak.factory.EntityFactory;
+import com.company.hepsiemlak.model.entities.Advert;
+import com.company.hepsiemlak.model.entities.Favorite;
+import com.company.hepsiemlak.model.entities.Message;
+
+import java.util.*;
+
+public class Runner {
+
+    public static void main(String[] args) {
+
+        //ilan listesi
+        getAdvertList();
+        System.out.println("**********************************************");
+        // bütün mesajlar
+        getMessageAll();
+        System.out.println("**********************************************");
+        //Sistemde bulunan bütün mesajların başlıkları ve bu mesajlardaki kullanıcıların kimler olduğunun listelenmesi
+        getMessageUser();
+
+    }
+
+    // Fabrikayı kurarak Nesne oluşturuyoruz
+    public static void getAdvertList() {
+        EntityFactory entityFactory = new EntityFactory();
+        AdvertManager advertManager = (AdvertManager) entityFactory.factory("Advert");
+        List<Advert> list = advertManager.getAdvertAll();
+
+        for (Advert advert : list) {
+            System.out.println(advert);
+        }
+    }
+
+    public static List<Message> getMessageAll() {
+        EntityFactory entityFactory = new EntityFactory();
+        MessageManager messageManager = (MessageManager) entityFactory.factory("Message");
+        return messageManager.getMessageALl();
+    }
+
+    public static void getMessageUser() {
+        List<Message> list = getMessageAll();
+        for (Message message : list) {
+            System.out.println(message.getTitle() + " başlıklı mesaj " + message.getMessageSendUser() + " adlı kişiye gönderilmiştir..");
+        }
+    }
+}
