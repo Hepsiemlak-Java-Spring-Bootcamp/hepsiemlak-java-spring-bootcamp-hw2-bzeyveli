@@ -1,0 +1,60 @@
+package com.company.hepsiemlak.business.concrete;
+
+import com.company.hepsiemlak.business.abstracts.ManagerHelper;
+import com.company.hepsiemlak.model.entities.Advert;
+import com.company.hepsiemlak.model.entities.AuthUser;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class AdvertManager implements ManagerHelper {
+    @Override
+    public void create() {
+        System.out.println("Advert new Create");
+    }
+
+    @Override
+    public void update() {
+
+    }
+
+    public List<Advert> getAdvertAll(){
+
+        AuthUser kullanici1 = new AuthUser( "Cem", "Dirman", "cemdirman@gmail.com","****","BIREYSEL");
+
+        AuthUser kullanici2 = new AuthUser("Kadir", "H", "cilgin.kadir@gmail.com","****","KURUMSAL");
+
+        AuthUser kullanici3 = new AuthUser( "Hatice", "Dagli", "hatice.dev@gmail.com", "****","KURUMSAL");
+
+        AuthUser kullanici4 = new AuthUser("Ayşe", "Sari", "ayse.sari@gmail.com","****","BIREYSEL");
+
+        AuthUser kullanici5 = new AuthUser("Batuhan", "İlbay", "batuhanilbay@gmail.com","****","KURUMSAL");
+
+        AuthUser kullanici6 = new AuthUser("Ozan", "Öztürk", "ozan@gmail.com","****","BIREYSEL");
+
+
+        List<Advert> advertList = new ArrayList<>();
+        Advert advert = new Advert("Sahibinden Acil Satchel", kullanici1,getPictureList(),1000F,10000,"istanbul","2+1");
+        Advert advert1 = new Advert("Sahibinden Acil Satchel", kullanici1,getPictureList(),1000F,10000,"İstanbul","2+1");
+        Advert advert2 = new Advert("Dosta GİDERRR ACİLLL!!!", kullanici5,getPictureList(),1000F,10000,"istanbul","3+1");
+        Advert advert3 = new Advert("Metroya Koşarak 5 dk", kullanici3, getPictureList(),1000F,10000,"İstanbul","1+1");
+        Advert advert4 = new Advert("5.Levent Satılık Peyzaj Manzaralı 3+1 Daire", kullanici4,getPictureList(),1000F,10000,"Malatya","");
+        Advert advert5 = new Advert("Acunlar'dan E5 Hastane. Avm Ve Okullara Yakın Satılık 2+1 Daire",kullanici6,getPictureList(),1000F,10000,"Malatya","");
+
+        advertList.add(advert);
+        advertList.add(advert1);
+        advertList.add(advert2);
+        advertList.add(advert3);
+        advertList.add(advert4);
+        advertList.add(advert5);
+
+        return advertList;
+    }
+
+    private static String[] getPictureList() {
+        String[] pictureList = new String[2];
+        pictureList[0] = "https://hecdnw01.hemlak.com/ds01/4/4/9/0/2/3/8/3/81d2e088-a551-485d-b2e9-664cc9200cdc.jpg";
+        pictureList[1] = "https://hecdnw01.hemlak.com/ds01/4/4/9/0/2/3/8/3/81d2e088-a551-485d-b2e9-664cc9200cdc.jpg";
+        return pictureList;
+    }
+}
