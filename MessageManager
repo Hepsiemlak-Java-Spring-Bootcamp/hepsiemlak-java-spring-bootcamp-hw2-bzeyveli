@@ -1,0 +1,54 @@
+package com.company.hepsiemlak.business.concrete;
+
+import com.company.hepsiemlak.business.abstracts.ManagerHelper;
+import com.company.hepsiemlak.model.entities.Advert;
+import com.company.hepsiemlak.model.entities.AuthUser;
+import com.company.hepsiemlak.model.entities.Message;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class MessageManager implements ManagerHelper {
+    @Override
+    public void create() {
+        System.out.println("Message new Create");
+    }
+
+    @Override
+    public void update() {
+
+    }
+
+    public List<Message> getMessageALl(){
+
+        AuthUser kullanici1 = new AuthUser( "Cem", "Dirman", "cemdirman@gmail.com","****","BIREYSEL");
+
+        AuthUser kullanici2 = new AuthUser("Kadir", "H", "cilgin.kadir@gmail.com","****","KURUMSAL");
+
+        AuthUser kullanici3 = new AuthUser( "Hatice", "Dagli", "hatice.dev@gmail.com", "****","KURUMSAL");
+
+        AuthUser kullanici4 = new AuthUser("Ayşe", "Sari", "ayse.sari@gmail.com","****","BIREYSEL");
+
+        AuthUser kullanici5 = new AuthUser("Batuhan", "İlbay", "batuhanilbay@gmail.com","****","KURUMSAL");
+
+        AuthUser kullanici6 = new AuthUser("Ozan", "Öztürk", "ozan@gmail.com","****","BIREYSEL");
+
+
+        List<Message> advertList = new ArrayList<>();
+
+        Message message1 = new Message("merhaba","İlan aktif mi", kullanici1,kullanici2,new Date(),new Date());
+        Message message2 = new Message("merhaba","İlan aktif mi", kullanici1,kullanici3,new Date(),new Date());
+        Message message3 = new Message("merhaba","İndirim var mı ", kullanici1,kullanici4,new Date(),new Date());
+        Message message4 = new Message("merhaba","İlan aktif mi", kullanici1,kullanici5,new Date(),new Date());
+        Message message5 = new Message("merhaba","İlan aktif mi", kullanici1,kullanici6,new Date(),new Date());
+
+        advertList.add(message1);
+        advertList.add(message2);
+        advertList.add(message3);
+        advertList.add(message4);
+        advertList.add(message5);
+
+        return advertList;
+    }
+}
